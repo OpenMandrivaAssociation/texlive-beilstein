@@ -1,6 +1,6 @@
 Name:		texlive-beilstein
 Version:	56193
-Release:	1
+Release:	2
 Summary:	Support for submissions to the "Beilstein Journal of Nanotechnology"
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/beilstein
