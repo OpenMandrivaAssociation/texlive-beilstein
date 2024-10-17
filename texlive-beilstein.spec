@@ -3,7 +3,7 @@ Version:	56193
 Release:	2
 Summary:	Support for submissions to the "Beilstein Journal of Nanotechnology"
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/beilstein
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beilstein
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.doc.r%{version}.tar.xz
