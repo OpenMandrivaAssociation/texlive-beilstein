@@ -1,44 +1,27 @@
-Name:		texlive-beilstein
-Version:	56193
-Release:	2
-Summary:	Support for submissions to the "Beilstein Journal of Nanotechnology"
+%global tl_name beilstein
+%global tl_revision 56193
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.1
+Release:	%{tl_revision}.1
+Summary:	Support for submissions to the Beilstein Journal of Nanotechnology
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/beilstein
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/beilstein.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides a LaTeX class file and a BibTeX style file
-in accordance with the requirements of submissions to the
-``Beilstein Journal of Nanotechnology''. Although the files can
-be used for any kind of document, they have only been designed
-and tested to be suitable for submissions to the Beilstein
-Journal of Nanotechnology.
+The package provides a LaTeX class file and a BibTeX style file in
+accordance with the requirements of submissions to the ``Beilstein
+Journal of Nanotechnology''. Although the files can be used for any kind
+of document, they have only been designed and tested to be suitable for
+submissions to the Beilstein Journal of Nanotechnology.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/beilstein
-%{_texmfdistdir}/tex/latex/beilstein
-%{_texmfdistdir}/bibtex/bst/beilstein
-%doc %{_texmfdistdir}/doc/latex/beilstein
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
